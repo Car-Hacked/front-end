@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SocketIO
 
 struct Root : Decodable {
    let Garages: [Garage]
@@ -31,6 +32,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var garageName: UILabel!
     @IBOutlet weak var outOf: UILabel!
     @IBOutlet weak var opaqCon: UIImageView!
+    @IBOutlet weak var sideButton: UIButton!
+    let manager = SocketManager(socketURL: URL(string: "https://park-a-lot.herokuapp.com/")!, config: [.log(true), .compress])
+    var socket: SocketIOClient!
     
     var total: Int!
     var avail: Int!
@@ -45,8 +49,14 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //socket
+        socket = manager.defaultSocket
+        socketLink();
+        socket.connect()
         //Meathods
         parseJson(x: 0)
         
@@ -59,12 +69,17 @@ class ViewController: UIViewController {
         opaqCon.layer.shadowOffset = .zero;
         opaqCon.layer.shadowOpacity = 1;
         opaqCon.layer.shadowRadius = 20;
-
+      
         //API call to set initial values
         let apicall = DispatchGroup();
         let garageJson = "https://park-a-lot.herokuapp.com/api/v1/garages"
         guard let url = URL(string: garageJson) else {return}
-        
+        sideButton.layer.cornerRadius = sideButton.frame.width/15;
+        sideButton.clipsToBounds = false;
+        sideButton.layer.shadowColor = UIColor.black.cgColor;
+        sideButton.layer.shadowOffset = .zero;
+        sideButton.layer.shadowOpacity = 1;
+        sideButton.layer.shadowRadius = 15;
         apicall.enter();
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {print(error)}
@@ -102,6 +117,13 @@ class ViewController: UIViewController {
         
         
       }
+     
+    func socketLink(){
+       socket.on(clientEvent: .connect) {data, ack in
+           print("socket connected")
+       }
+        
+    }
 
 }
 
