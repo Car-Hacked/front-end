@@ -15,6 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerBackground" translatesAutoresizingMaskIntoConstraints="NO" id="x9a-OO-EYm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="398"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="398" id="Ynj-Mu-GZF"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spots Taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byj-Y7-s04">
                                 <rect key="frame" x="119" y="281" width="94" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,13 +56,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XwJ-TD-vRM">
+                                <rect key="frame" x="49" y="192" width="316" height="151"/>
+                                <color key="backgroundColor" red="0.22698324918746948" green="0.043975986540317535" blue="0.63033992052078247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="151" id="Jnl-lz-CZa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.070426635444164276" green="0.069696418941020966" blue="0.11113230139017105" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="x9a-OO-EYm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4Nc-yb-Lxd"/>
+                            <constraint firstItem="x9a-OO-EYm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4Ws-Gl-7z3"/>
+                            <constraint firstItem="x9a-OO-EYm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ae1-lG-07w"/>
+                            <constraint firstItem="x9a-OO-EYm" firstAttribute="bottom" secondItem="XwJ-TD-vRM" secondAttribute="bottom" constant="55" id="gxh-Xu-DLc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XwJ-TD-vRM" secondAttribute="trailing" constant="49" id="pOK-b9-yei"/>
+                            <constraint firstItem="XwJ-TD-vRM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="tsl-rh-vMQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="availableSpots" destination="0eL-mA-AAD" id="Qwy-wP-ihs"/>
+                        <outlet property="headerBacground" destination="x9a-OO-EYm" id="7KL-FR-srF"/>
                         <outlet property="parking" destination="zwQ-Vs-2I1" id="SNH-uq-EdT"/>
+                        <outlet property="purpCon" destination="XwJ-TD-vRM" id="73p-nI-c1Z"/>
                         <outlet property="spotsTaken" destination="Byj-Y7-s04" id="OlU-Pt-tnw"/>
                         <outlet property="totalSpots" destination="37m-uG-XfQ" id="5Ya-1G-Lrj"/>
                         <outlet property="track" destination="0oL-7d-Ybe" id="tMU-nO-0jx"/>
@@ -64,7 +88,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="134"/>
+            <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="headerBackground" width="750" height="667"/>
+    </resources>
 </document>

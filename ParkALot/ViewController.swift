@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var spotsTaken: UILabel!
     @IBOutlet weak var track: UILabel!
     @IBOutlet weak var parking: UILabel!
+    @IBOutlet var headerBacground: UIImageView!
+    @IBOutlet var purpCon: UIImageView!
     
     var total: Int!
     var avail: Int!
@@ -49,6 +51,24 @@ class ViewController: UIViewController {
         availableSpots.text = String(avail);
         spotsTaken.text =   ttlAvl + String(taken);
         // Do any additional setup after loading the view.
+        
+        
+        
+        
+        roundCorners(imgv: headerBacground);
+        roundCorners(imgv: purpCon);
+    }
+    
+   
+    
+    
+    
+    func roundCorners(imgv: UIImageView){
+        if (imgv == headerBacground){
+            imgv.layer.cornerRadius = imgv.frame.width/10;
+        }else{
+            imgv.layer.cornerRadius = imgv.frame.width/30;
+        }
     }
 
 
