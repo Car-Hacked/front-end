@@ -33,13 +33,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var outOf: UILabel!
     @IBOutlet weak var opaqCon: UIImageView!
     @IBOutlet weak var sideButton: UIButton!
+    
     let manager = SocketManager(socketURL: URL(string: "https://park-a-lot.herokuapp.com/")!, config: [.log(true), .compress])
     var socket: SocketIOClient!
-    
     var total: Int!
     var avail: Int!
     var taken: Int!
     var garageList:[Garage] = []
+    var x = 0
     
     func roundCorners(imgv: UIImageView){
         if (imgv == headerBacground){
@@ -57,9 +58,7 @@ class ViewController: UIViewController {
         socket = manager.defaultSocket
         socketLink();
         socket.connect()
-        //Meathods
-        parseJson(x: 0)
-        
+
         //View setup
         roundCorners(imgv: headerBacground);
         roundCorners(imgv: purpCon);
@@ -113,15 +112,23 @@ class ViewController: UIViewController {
         }
     }
     
-    func parseJson(x: Int) {
-        
-        
-      }
-     
+    let funny  = ["CHRIS","AiDaN","TiM","NicK","peter","sean"]
+
     func socketLink(){
        socket.on(clientEvent: .connect) {data, ack in
            print("socket connected")
        }
+        self.socket.onAny { _ in (
+            self.track.text = self.funny[self.x%6],
+            self.x = self.x+1,
+            self.availableSpots.text = self.funny[self.x%6],
+            self.x = self.x+1,
+            self.parking.text = self.funny[self.x%6],
+            self.x = self.x+1,
+            self.outOf.text = self.funny[self.x%6],
+            self.x = self.x+1
+            )}
+
         
     }
 
