@@ -64,6 +64,13 @@ class ViewController: UIViewController {
         
         roundCorners(imgv: headerBacground);
         roundCorners(imgv: purpCon);
+        roundCorners(imgv: opaqCon)
+        opaqCon.clipsToBounds = false;
+        opaqCon.layer.shadowColor = UIColor.black.cgColor;
+        opaqCon.layer.shadowOffset = .zero;
+        opaqCon.layer.shadowOpacity = 1;
+        opaqCon.layer.shadowRadius = 20;
+        
     }
     
    
@@ -72,7 +79,7 @@ class ViewController: UIViewController {
     
     func roundCorners(imgv: UIImageView){
         if (imgv == headerBacground){
-            imgv.layer.cornerRadius = imgv.frame.width/10;
+            imgv.layer.cornerRadius = imgv.frame.width/15;
         }else{
             imgv.layer.cornerRadius = imgv.frame.width/30;
         }
