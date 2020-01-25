@@ -119,14 +119,13 @@ class ViewController: UIViewController {
            print("socket connected")
        }
         self.socket.on("garageUpdate") {data, ack in
-            
-            //let upGarage = try! JSONDecoder().decode([Garage].self, from: data[0] as! Data)
-            let upGarage = data[0] as
-            let upGarage = [String: AnyObject]()
-
-            //let  upGarage = data[0] as! Dictionary <String, Any>
-            self.taken = upGarage.count as? Int;
-            self.total = upGarage.capacity as? Int;
+            var id = data[0] as! String;
+            if var carsInLot = data[1] as? String {
+                self.taken = Int(carsInLot);
+            }
+            else {
+                self.taken = data[1] as? Int;
+            }
             self.avail = self.total - self.taken;
             self.track.text = self.trackTtl;
             self.parking.text = self.parkingTtl;
