@@ -21,15 +21,26 @@
                                     <constraint firstAttribute="height" constant="398" id="Ynj-Mu-GZF"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Spots Available: x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eL-mA-AAD">
-                                <rect key="frame" x="118" y="326" width="178" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XwJ-TD-vRM">
+                                <rect key="frame" x="49" y="192" width="316" height="151"/>
+                                <color key="backgroundColor" red="0.22698324918746948" green="0.043975986540317535" blue="0.63033992052078247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="151" id="Jnl-lz-CZa"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kXG-e3-PZ5">
+                                <rect key="frame" x="87" y="406" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oL-7d-Ybe">
+                                <rect key="frame" x="63" y="98" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's track" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oL-7d-Ybe">
-                                <rect key="frame" x="63" y="98" width="80" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Spots Available: x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eL-mA-AAD">
+                                <rect key="frame" x="118" y="326" width="178" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -56,13 +67,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XwJ-TD-vRM">
-                                <rect key="frame" x="49" y="192" width="316" height="151"/>
-                                <color key="backgroundColor" red="0.22698324918746948" green="0.043975986540317535" blue="0.63033992052078247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="151" id="Jnl-lz-CZa"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.070426635444164276" green="0.069696418941020966" blue="0.11113230139017105" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,11 +82,12 @@
                     </view>
                     <connections>
                         <outlet property="availableSpots" destination="0eL-mA-AAD" id="Qwy-wP-ihs"/>
-                        <outlet property="headerBacground" destination="x9a-OO-EYm" id="7KL-FR-srF"/>
-                        <outlet property="purpCon" destination="XwJ-TD-vRM" id="73p-nI-c1Z"/>
                         <outlet property="garageName" destination="lt2-pP-aNJ" id="Imk-W8-HyW"/>
+                        <outlet property="headerBacground" destination="x9a-OO-EYm" id="7KL-FR-srF"/>
+                        <outlet property="opaqCon" destination="kXG-e3-PZ5" id="yXV-Sk-Own"/>
                         <outlet property="outOf" destination="9Oy-dn-wyN" id="hxH-DB-SL6"/>
                         <outlet property="parking" destination="zwQ-Vs-2I1" id="SNH-uq-EdT"/>
+                        <outlet property="purpCon" destination="XwJ-TD-vRM" id="73p-nI-c1Z"/>
                         <outlet property="track" destination="0oL-7d-Ybe" id="tMU-nO-0jx"/>
                     </connections>
                 </viewController>

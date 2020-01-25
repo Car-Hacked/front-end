@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var purpCon: UIImageView!
     @IBOutlet weak var garageName: UILabel!
     @IBOutlet weak var outOf: UILabel!
+    @IBOutlet weak var opaqCon: UIImageView!
     
     var total: Int!
     var avail: Int!
