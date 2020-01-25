@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var availableSpots: UILabel!
     @IBOutlet weak var track: UILabel!
     @IBOutlet weak var parking: UILabel!
@@ -35,12 +36,17 @@ class ViewController: UIViewController {
         avail = 8;
     }
     
-    
-    
+    func roundCorners(imgv: UIImageView){
+        if (imgv == headerBacground){
+            imgv.layer.cornerRadius = imgv.frame.width/15;
+        }else{
+            imgv.layer.cornerRadius = imgv.frame.width/30;
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setup
+        //Meathods
         getTotalSpots();
         getAvailableSpots();
         getTakenSpots();
@@ -52,16 +58,7 @@ class ViewController: UIViewController {
         let slashT = " / ";
         let sptFll = " Spots filled"
         
-        //to screen
-        availableSpots.text = ttlAvl ;
-        track.text = trackTtl;
-        parking.text = parkingTtl;
-        outOf.text = String(taken) + slashT + String(total) + sptFll;
-        // Do any additional setup after loading the view.
-        
-        
-        
-        
+        //View setup
         roundCorners(imgv: headerBacground);
         roundCorners(imgv: purpCon);
         roundCorners(imgv: opaqCon)
@@ -70,21 +67,13 @@ class ViewController: UIViewController {
         opaqCon.layer.shadowOffset = .zero;
         opaqCon.layer.shadowOpacity = 1;
         opaqCon.layer.shadowRadius = 20;
+        availableSpots.text = ttlAvl ;
+        track.text = trackTtl;
+        parking.text = parkingTtl;
+        outOf.text = String(taken) + slashT + String(total) + sptFll;
         
+        // Do any additional setup after loading the view.
     }
-    
-   
-    
-    
-    
-    func roundCorners(imgv: UIImageView){
-        if (imgv == headerBacground){
-            imgv.layer.cornerRadius = imgv.frame.width/15;
-        }else{
-            imgv.layer.cornerRadius = imgv.frame.width/30;
-        }
-    }
-
 
 }
 
