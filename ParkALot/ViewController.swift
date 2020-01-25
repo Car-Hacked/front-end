@@ -8,6 +8,19 @@
 
 import UIKit
 
+struct Root : Decodable {
+   let Garages: [Garage]
+}
+struct Garage: Decodable{
+    let garageNumber: Int
+    let carsInLot: Int
+    let _id: String
+    let capacity: Int
+    let createdAt: String
+    let updatedAt: String
+    let __v: Int
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var availableSpots: UILabel!
@@ -22,19 +35,7 @@ class ViewController: UIViewController {
     var total: Int!
     var avail: Int!
     var taken: Int!
-    
-    
-    func getTotalSpots(){
-        total = 10;
-    }
-    
-    func getTakenSpots(){
-        taken = 2;
-    }
-    
-    func getAvailableSpots(){
-        avail = 8;
-    }
+    var garageList:[Garage] = []
     
     func roundCorners(imgv: UIImageView){
         if (imgv == headerBacground){
@@ -47,16 +48,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Meathods
-        getTotalSpots();
-        getAvailableSpots();
-        getTakenSpots();
-        
-        // variables
-        let ttlAvl = "Total Spots Available: " + String(avail);
-        let trackTtl = "Let's track";
-        let parkingTtl = "some parking.";
-        let slashT = " / ";
-        let sptFll = " Spots filled"
+        parseJson(x: 0)
         
         //View setup
         roundCorners(imgv: headerBacground);
@@ -67,13 +59,49 @@ class ViewController: UIViewController {
         opaqCon.layer.shadowOffset = .zero;
         opaqCon.layer.shadowOpacity = 1;
         opaqCon.layer.shadowRadius = 20;
-        availableSpots.text = ttlAvl ;
-        track.text = trackTtl;
-        parking.text = parkingTtl;
-        outOf.text = String(taken) + slashT + String(total) + sptFll;
+
+        //API call to set initial values
+        let apicall = DispatchGroup();
+        let garageJson = "https://park-a-lot.herokuapp.com/api/v1/garages"
+        guard let url = URL(string: garageJson) else {return}
         
-        // Do any additional setup after loading the view.
+        apicall.enter();
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {print(error)}
+            guard let data = data else {return}
+            do{
+                let garages = try JSONDecoder().decode([Garage].self, from: data)
+                //self.garageList.append(garages.Garage)
+                print(garages);
+                let selectedGarage = garages[0]
+                self.taken = selectedGarage.carsInLot
+                self.total = selectedGarage.capacity
+                self.avail = self.total - self.taken;
+                
+            }catch let err{
+                print (err)
+                
+            }
+            apicall.leave()
+        }
+        .resume()
+        apicall.notify(queue: .main){
+            let ttlAvl = "Total Spots Available: " + String(self.avail);
+            let trackTtl = "Let's track";
+            let parkingTtl = "some parking.";
+            let slashT = " / ";
+            let sptFll = " Spots filled"
+            self.availableSpots.text = ttlAvl ;
+            self.track.text = trackTtl;
+            self.parking.text = parkingTtl;
+            self.outOf.text = String(self.taken) + slashT + String(self.total) + sptFll;
+        }
     }
+    
+    func parseJson(x: Int) {
+        
+        
+      }
 
 }
 
