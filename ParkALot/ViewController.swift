@@ -12,10 +12,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalSpots: UILabel!
     @IBOutlet weak var availableSpots: UILabel!
     @IBOutlet weak var spotsTaken: UILabel!
+    @IBOutlet weak var track: UILabel!
+    @IBOutlet weak var parking: UILabel!
     
     var total: Int!
     var avail: Int!
     var taken: Int!
+    
     
     func getTotalSpots(){
         total = 10;
@@ -31,14 +34,20 @@ class ViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //setup
         getTotalSpots();
         getAvailableSpots();
         getTakenSpots();
+        // variables
+        let ttlAvl = "Total Spots Available: ";
+        
+        //to screen
         totalSpots.text = String(total);
         availableSpots.text = String(avail);
-        spotsTaken.text = String(taken);
+        spotsTaken.text =   ttlAvl + String(taken);
         // Do any additional setup after loading the view.
     }
 
