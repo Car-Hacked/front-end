@@ -13,6 +13,7 @@
 		0C9F9E2A23DBEC0E008769B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2823DBEC0E008769B6 /* Main.storyboard */; };
 		0C9F9E2C23DBEC10008769B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2B23DBEC10008769B6 /* Assets.xcassets */; };
 		0C9F9E2F23DBEC10008769B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2D23DBEC10008769B6 /* LaunchScreen.storyboard */; };
+		0C9F9E4023DC2781008769B6 /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E3F23DC2781008769B6 /* SF-Pro-Display-Heavy.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0C9F9E2B23DBEC10008769B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C9F9E2E23DBEC10008769B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C9F9E3023DBEC10008769B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C9F9E3F23DC2781008769B6 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		0C9F9E2123DBEC0E008769B6 /* ParkALot */ = {
 			isa = PBXGroup;
 			children = (
+				0C9F9E3F23DC2781008769B6 /* SF-Pro-Display-Heavy.otf */,
 				0C9F9E2223DBEC0E008769B6 /* AppDelegate.swift */,
 				0C9F9E2423DBEC0E008769B6 /* SceneDelegate.swift */,
 				0C9F9E2623DBEC0E008769B6 /* ViewController.swift */,
@@ -128,6 +131,7 @@
 				0C9F9E2F23DBEC10008769B6 /* LaunchScreen.storyboard in Resources */,
 				0C9F9E2C23DBEC10008769B6 /* Assets.xcassets in Resources */,
 				0C9F9E2A23DBEC0E008769B6 /* Main.storyboard in Resources */,
+				0C9F9E4023DC2781008769B6 /* SF-Pro-Display-Heavy.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LSK3Y2VKND;
 				INFOPLIST_FILE = ParkALot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LSK3Y2VKND;
 				INFOPLIST_FILE = ParkALot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
