@@ -58,23 +58,41 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking Garage X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lt2-pP-aNJ">
-                                <rect key="frame" x="30" y="244" width="354" height="21"/>
+                                <rect key="frame" x="30" y="244" width="354" height="20"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Heavy" family="SF Pro Display" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Spots Available: x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eL-mA-AAD">
-                                <rect key="frame" x="25" y="337" width="364" height="21"/>
+                                <rect key="frame" x="25" y="337" width="364" height="20"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Heavy" family="SF Pro Display" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x/x spots filled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oy-dn-wyN">
-                                <rect key="frame" x="117" y="273" width="181" height="14.5"/>
+                                <rect key="frame" x="117" y="272" width="181" height="14"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Heavy" family="SF Pro Display" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-21-Nuf">
+                                <rect key="frame" x="351" y="69" width="38" height="38"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="eMl-eB-l9u"/>
+                                    <constraint firstAttribute="height" constant="38" id="rRg-e3-Wbx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" red="0.070969574153423309" green="0.069549672305583954" blue="0.10980866104364395" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="line.horizontal.3" catalog="system">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.070426635444164276" green="0.069696418941020966" blue="0.11113230139017105" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,12 +113,14 @@
                             <constraint firstItem="lt2-pP-aNJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Uwx-vQ-EMN"/>
                             <constraint firstItem="aSG-7R-Wtk" firstAttribute="trailing" secondItem="0eL-mA-AAD" secondAttribute="trailing" id="XI3-Vy-vDL"/>
                             <constraint firstItem="XwJ-TD-vRM" firstAttribute="trailing" secondItem="kXG-e3-PZ5" secondAttribute="trailing" id="Yh7-wu-MtD"/>
+                            <constraint firstItem="Onb-21-Nuf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="ZnI-Yy-eni"/>
                             <constraint firstItem="x9a-OO-EYm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ae1-lG-07w"/>
                             <constraint firstItem="9Oy-dn-wyN" firstAttribute="top" secondItem="lt2-pP-aNJ" secondAttribute="bottom" constant="8" id="chE-4v-vbc"/>
                             <constraint firstItem="x9a-OO-EYm" firstAttribute="bottom" secondItem="XwJ-TD-vRM" secondAttribute="bottom" constant="65" id="gxh-Xu-DLc"/>
                             <constraint firstItem="0eL-mA-AAD" firstAttribute="leading" secondItem="aSG-7R-Wtk" secondAttribute="leading" id="lRq-pR-Q1J"/>
                             <constraint firstItem="9Oy-dn-wyN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="117" id="lvO-BC-fnM"/>
                             <constraint firstItem="XwJ-TD-vRM" firstAttribute="top" secondItem="zwQ-Vs-2I1" secondAttribute="bottom" constant="19" id="maY-F7-AuJ"/>
+                            <constraint firstItem="XwJ-TD-vRM" firstAttribute="trailing" secondItem="Onb-21-Nuf" secondAttribute="trailing" id="oiZ-mO-oAJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XwJ-TD-vRM" secondAttribute="trailing" constant="25" id="pOK-b9-yei"/>
                             <constraint firstItem="XwJ-TD-vRM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="tsl-rh-vMQ"/>
                             <constraint firstItem="kXG-e3-PZ5" firstAttribute="leading" secondItem="XwJ-TD-vRM" secondAttribute="leading" id="vaH-ld-iis"/>
@@ -116,6 +136,7 @@
                         <outlet property="outOf" destination="9Oy-dn-wyN" id="hxH-DB-SL6"/>
                         <outlet property="parking" destination="zwQ-Vs-2I1" id="SNH-uq-EdT"/>
                         <outlet property="purpCon" destination="XwJ-TD-vRM" id="73p-nI-c1Z"/>
+                        <outlet property="sideButton" destination="Onb-21-Nuf" id="k9U-z3-A3k"/>
                         <outlet property="track" destination="0oL-7d-Ybe" id="tMU-nO-0jx"/>
                     </connections>
                 </viewController>
@@ -126,5 +147,6 @@
     </scenes>
     <resources>
         <image name="headerBackground" width="750" height="667"/>
+        <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
     </resources>
 </document>
