@@ -49,8 +49,8 @@ class ViewController: UIViewController {
         let ttlAvl = "Total Spots Available: " + String(avail);
         let trackTtl = "Let's track";
         let parkingTtl = "some parking.";
-        let slashT = "/";
-        let sptFll = "Spots filled"
+        let slashT = " / ";
+        let sptFll = " Spots filled"
         
         //to screen
         availableSpots.text = ttlAvl ;
