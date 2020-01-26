@@ -16,6 +16,9 @@
 		0C9F9E2C23DBEC10008769B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2B23DBEC10008769B6 /* Assets.xcassets */; };
 		0C9F9E2F23DBEC10008769B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2D23DBEC10008769B6 /* LaunchScreen.storyboard */; };
 		0C9F9E4023DC2781008769B6 /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E3F23DC2781008769B6 /* SF-Pro-Display-Heavy.otf */; };
+		DD7CC67123DD2C7500A86379 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7CC67023DD2C7500A86379 /* StackViewController.swift */; };
+		DDFFF3D323DD72C400098FFF /* garageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFFF3D223DD72C400098FFF /* garageTableViewCell.swift */; };
+		DDFFF3D523DD7AF200098FFF /* gapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFFF3D423DD7AF200098FFF /* gapTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		6180AF416CCD518C5848C47E /* Pods-ParkALot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkALot.release.xcconfig"; path = "Target Support Files/Pods-ParkALot/Pods-ParkALot.release.xcconfig"; sourceTree = "<group>"; };
 		8CF671FC437A1E0DC78F8902 /* Pods-ParkALot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkALot.debug.xcconfig"; path = "Target Support Files/Pods-ParkALot/Pods-ParkALot.debug.xcconfig"; sourceTree = "<group>"; };
 		92EBE40CC3B00C6C8DC38056 /* Pods_ParkALot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkALot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD7CC67023DD2C7500A86379 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		DDFFF3D223DD72C400098FFF /* garageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = garageTableViewCell.swift; sourceTree = "<group>"; };
+		DDFFF3D423DD7AF200098FFF /* gapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gapTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 				0C9F9E2223DBEC0E008769B6 /* AppDelegate.swift */,
 				0C9F9E2423DBEC0E008769B6 /* SceneDelegate.swift */,
 				0C9F9E2623DBEC0E008769B6 /* ViewController.swift */,
+				DD7CC67023DD2C7500A86379 /* StackViewController.swift */,
+				DDFFF3D223DD72C400098FFF /* garageTableViewCell.swift */,
+				DDFFF3D423DD7AF200098FFF /* gapTableViewCell.swift */,
 				0C9F9E2823DBEC0E008769B6 /* Main.storyboard */,
 				0C9F9E2B23DBEC10008769B6 /* Assets.xcassets */,
 				0C9F9E2D23DBEC10008769B6 /* LaunchScreen.storyboard */,
@@ -214,9 +223,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFFF3D523DD7AF200098FFF /* gapTableViewCell.swift in Sources */,
 				0C9F9E2723DBEC0E008769B6 /* ViewController.swift in Sources */,
+				DD7CC67123DD2C7500A86379 /* StackViewController.swift in Sources */,
 				0C9F9E2323DBEC0E008769B6 /* AppDelegate.swift in Sources */,
 				0C9F9E2523DBEC0E008769B6 /* SceneDelegate.swift in Sources */,
+				DDFFF3D323DD72C400098FFF /* garageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
