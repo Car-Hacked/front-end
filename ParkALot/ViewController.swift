@@ -126,10 +126,12 @@ class ViewController: UIViewController {
             else {
                 self.taken = data[1] as? Int;
             }
-            self.avail = self.total - self.taken;
             self.track.text = self.trackTtl;
             self.parking.text = self.parkingTtl;
             self.outOf.text = String(self.taken) + self.slashT + String(self.total) + self.sptFll;
+            self.avail = self.total - self.taken;
+            self.ttlAvl = "Total Spots Available: " + String(self.avail);
+            self.availableSpots.text = self.ttlAvl;
             
         }
         
