@@ -34,7 +34,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var outOf: UILabel!
     @IBOutlet weak var opaqCon: UIImageView!
     @IBOutlet weak var goTo: UIButton!
+    
     @IBAction func backTo(_ sender: Any) {
+        
     }
     
     
