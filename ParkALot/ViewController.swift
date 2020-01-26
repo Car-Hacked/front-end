@@ -34,6 +34,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var outOf: UILabel!
     @IBOutlet weak var opaqCon: UIImageView!
     @IBOutlet weak var goTo: UIButton!
+    @IBAction func backTo(_ sender: Any) {
+    }
+    
+    
     @IBAction func goToMap(_ sender: Any) {
         guard let urlButton = URL(string: "http://maps.apple.com/?address=1803+15th+avenue+south,+37212+Nashville,+tn&t=m") else {
             return
@@ -81,6 +85,11 @@ class ViewController: UIViewController {
         outOf.layer.borderWidth = 2;
         outOf.layer.borderColor = UIColor.white.cgColor
         outOf.layer.cornerRadius = outOf.frame.width/6;
+        goTo.layer.cornerRadius = goTo.frame.width/60;
+        goTo.layer.shadowOffset = CGSize(width:0,height: 16);
+        goTo.layer.shadowOpacity = 0.5;
+        goTo.layer.shadowRadius = 20;
+        
         roundCorners(imgv: headerBacground);
         roundCorners(imgv: purpCon);
         roundCorners(imgv: opaqCon)
