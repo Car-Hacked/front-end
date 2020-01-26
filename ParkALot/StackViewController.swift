@@ -27,23 +27,29 @@ struct Garage: Decodable{
 class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     //Outlets
 
-    
+    //outlets
     @IBOutlet weak var headerBackground: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var refresh: UIButton!
     
-    
-    
-    
-    //Vars
+    //vars
     var Garages: [Garage] = []
     var taken: Int!
     var total: Int!
     var carryGarry: Garage? = nil
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // hard data View setup
+        headerBackground.layer.cornerRadius = headerBackground.frame.width/15
+        refresh.imageEdgeInsets = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+        refresh.layer.cornerRadius = headerBackground.frame.width/35
+        refresh.clipsToBounds = false;
+        refresh.layer.shadowColor = UIColor.black.cgColor;
+        refresh.layer.shadowOffset = .zero;
+        refresh.layer.shadowOpacity = 1;
+        refresh.layer.shadowRadius = 15;
+
+        
         // Api Call
         let apicall = DispatchGroup();
         let garageJson = "https://park-a-lot.herokuapp.com/api/v1/garages/"
@@ -94,10 +100,11 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath.row % 2) == 0 {return 30}
+        if (indexPath.row % 2) == 0 {return 20}
 
         return 80
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         carryGarry = Garages[indexPath.row/2]
         let singleDisplay = ViewController()

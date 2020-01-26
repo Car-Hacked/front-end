@@ -66,7 +66,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(currGar)
         //socket connection
         socket = manager.defaultSocket
         socketLink();
