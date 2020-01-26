@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var garageName: UILabel!
     @IBOutlet weak var outOf: UILabel!
     @IBOutlet weak var opaqCon: UIImageView!
-    @IBOutlet weak var sideButton: UIButton!
     
     let manager = SocketManager(socketURL: URL(string: "https://park-a-lot.herokuapp.com/")!, config: [.log(true), .compress])
     var socket: SocketIOClient!
@@ -67,6 +66,9 @@ class ViewController: UIViewController {
         socket.connect()
 
         //View setup
+        outOf.layer.borderWidth = 2;
+        outOf.layer.borderColor = UIColor.white.cgColor
+        outOf.layer.cornerRadius = outOf.frame.width/6;
         roundCorners(imgv: headerBacground);
         roundCorners(imgv: purpCon);
         roundCorners(imgv: opaqCon)
@@ -80,12 +82,6 @@ class ViewController: UIViewController {
         let apicall = DispatchGroup();
         let garageJson = "https://park-a-lot.herokuapp.com/api/v1/garages/"
         guard let url = URL(string: garageJson) else {return}
-        sideButton.layer.cornerRadius = sideButton.frame.width/15;
-        sideButton.clipsToBounds = false;
-        sideButton.layer.shadowColor = UIColor.black.cgColor;
-        sideButton.layer.shadowOffset = .zero;
-        sideButton.layer.shadowOpacity = 1;
-        sideButton.layer.shadowRadius = 15;
         apicall.enter();
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {print(error)}
