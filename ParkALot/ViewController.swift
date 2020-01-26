@@ -33,7 +33,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var garageName: UILabel!
     @IBOutlet weak var outOf: UILabel!
     @IBOutlet weak var opaqCon: UIImageView!
-    @IBOutlet weak var sideButton: UIButton!
+    @IBOutlet weak var goTo: UIButton!
+    
+    @IBAction func backTo(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func goToMap(_ sender: Any) {
+        guard let urlButton = URL(string: "http://maps.apple.com/?address=1803+15th+avenue+south,+37212+Nashville,+tn&t=m") else {
+            return
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(urlButton, options: [:]) {_ in }
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(urlButton)
+        }
+    }
     
     let manager = SocketManager(socketURL: URL(string: "https://park-a-lot.herokuapp.com/")!, config: [.log(true), .compress])
     var socket: SocketIOClient!
@@ -43,8 +60,8 @@ class ViewController: UIViewController {
     var ttlAvl: String!
     var garageList:[Garage] = []
     var x = 0
-    let trackTtl = "Let's track";
-    let parkingTtl = "some parking.";
+    let trackTtl = "Let's track some";
+    let parkingTtl = "parking.";
     let slashT = " / ";
     let sptFll = " Spots filled"
     
@@ -67,6 +84,14 @@ class ViewController: UIViewController {
         socket.connect()
 
         //View setup
+        outOf.layer.borderWidth = 2;
+        outOf.layer.borderColor = UIColor.white.cgColor
+        outOf.layer.cornerRadius = outOf.frame.width/6;
+        goTo.layer.cornerRadius = goTo.frame.width/60;
+        goTo.layer.shadowOffset = CGSize(width:0,height: 16);
+        goTo.layer.shadowOpacity = 0.5;
+        goTo.layer.shadowRadius = 20;
+        
         roundCorners(imgv: headerBacground);
         roundCorners(imgv: purpCon);
         roundCorners(imgv: opaqCon)
@@ -80,12 +105,6 @@ class ViewController: UIViewController {
         let apicall = DispatchGroup();
         let garageJson = "https://park-a-lot.herokuapp.com/api/v1/garages/"
         guard let url = URL(string: garageJson) else {return}
-        sideButton.layer.cornerRadius = sideButton.frame.width/15;
-        sideButton.clipsToBounds = false;
-        sideButton.layer.shadowColor = UIColor.black.cgColor;
-        sideButton.layer.shadowOffset = .zero;
-        sideButton.layer.shadowOpacity = 1;
-        sideButton.layer.shadowRadius = 15;
         apicall.enter();
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {print(error)}
@@ -108,11 +127,11 @@ class ViewController: UIViewController {
         }
         .resume()
         apicall.notify(queue: .main){
-            self.ttlAvl = "Total Spots Available: " + String(self.avail);
+            self.ttlAvl = String(self.avail) + " Available";
             self.availableSpots.text = self.ttlAvl ;
             self.track.text = self.trackTtl;
             self.parking.text = self.parkingTtl;
-            self.outOf.text = String(self.taken) + self.slashT + String(self.total) + self.sptFll;
+            self.outOf.text = String(self.taken) + self.slashT + String(self.total);
         }
     }
     
@@ -130,9 +149,9 @@ class ViewController: UIViewController {
             }
             self.track.text = self.trackTtl;
             self.parking.text = self.parkingTtl;
-            self.outOf.text = String(self.taken) + self.slashT + String(self.total) + self.sptFll;
+            self.outOf.text = String(self.taken) + self.slashT + String(self.total);
             self.avail = self.total - self.taken;
-            self.ttlAvl = "Total Spots Available: " + String(self.avail);
+            self.ttlAvl = String(self.avail) + " Available";
             self.availableSpots.text = self.ttlAvl;
             print("ball")
             
