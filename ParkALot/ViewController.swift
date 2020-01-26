@@ -13,10 +13,10 @@ struct Root : Decodable {
    let Garages: [Garage]
 }
 struct Garage: Decodable{
-    let name: String
-    let carsInLot: Int
-    let _id: String
-    let capacity: Int
+    var name: String
+    var carsInLot: Int
+    var _id: String
+    var capacity: Int
 //    let createdAt: String
 //    let updatedAt: String
 //    let __v: Int
@@ -76,42 +76,42 @@ class ViewController: UIViewController {
         opaqCon.layer.shadowRadius = 20;
       
         //API call to set initial values
-        let apicall = DispatchGroup();
-        let garageJson = "https://park-hack-api.herokuapp.com/garages"
-        guard let url = URL(string: garageJson) else {return}
+//        let apicall = DispatchGroup();
+//        let garageJson = "https://park-hack-api.herokuapp.com/garages"
+//        guard let url = URL(string: garageJson) else {return}
         sideButton.layer.cornerRadius = sideButton.frame.width/15;
         sideButton.clipsToBounds = false;
         sideButton.layer.shadowColor = UIColor.black.cgColor;
         sideButton.layer.shadowOffset = .zero;
         sideButton.layer.shadowOpacity = 1;
         sideButton.layer.shadowRadius = 15;
-        apicall.enter();
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {print(error)}
-            guard let data = data else {return}
-            do{
-                let garages = try JSONDecoder().decode([Garage].self, from: data)
-                //self.garageList.append(garages.Garage)
-                print(garages);
-                let selectedGarage = garages[0]
-                self.taken = selectedGarage.carsInLot
-                self.total = selectedGarage.capacity
-                self.avail = self.total - self.taken;
-                
-            }catch let err{
-                print (err)
-                
-            }
-            apicall.leave()
-        }
-        .resume()
-        apicall.notify(queue: .main){
-            self.ttlAvl = "Total Spots Available: " + String(self.avail);
-            self.availableSpots.text = self.ttlAvl ;
-            self.track.text = self.trackTtl;
-            self.parking.text = self.parkingTtl;
-            self.outOf.text = String(self.taken) + self.slashT + String(self.total) + self.sptFll;
-        }
+//        apicall.enter();
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            if let error = error {print(error)}
+//            guard let data = data else {return}
+//            do{
+//                let garages = try JSONDecoder().decode([Garage].self, from: data)
+//                //self.garageList.append(garages.Garage)
+//                print(garages);
+//                let selectedGarage = garages[0]
+//                self.taken = selectedGarage.carsInLot
+//                self.total = selectedGarage.capacity
+//                self.avail = self.total - self.taken;
+//                
+//            }catch let err{
+//                print (err)
+//                
+//            }
+//            apicall.leave()
+//        }
+//        .resume()
+//        apicall.notify(queue: .main){
+//            self.ttlAvl = "Total Spots Available: " + String(self.avail);
+//            self.availableSpots.text = self.ttlAvl ;
+//            self.track.text = self.trackTtl;
+//            self.parking.text = self.parkingTtl;
+//            self.outOf.text = String(self.taken) + self.slashT + String(self.total) + self.sptFll;
+//        }
     }
     
     func socketLink(){
