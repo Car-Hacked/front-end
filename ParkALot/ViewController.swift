@@ -108,11 +108,11 @@ class ViewController: UIViewController {
         }
         .resume()
         apicall.notify(queue: .main){
-            self.ttlAvl = "Total Spots Available: " + String(self.avail);
+            self.ttlAvl = String(self.avail) + " Available";
             self.availableSpots.text = self.ttlAvl ;
             self.track.text = self.trackTtl;
             self.parking.text = self.parkingTtl;
-            self.outOf.text = String(self.taken) + self.slashT + String(self.total) + self.sptFll;
+            self.outOf.text = String(self.taken) + self.slashT + String(self.total);
         }
     }
     
@@ -130,9 +130,9 @@ class ViewController: UIViewController {
             }
             self.track.text = self.trackTtl;
             self.parking.text = self.parkingTtl;
-            self.outOf.text = String(self.taken) + self.slashT + String(self.total) + self.sptFll;
+            self.outOf.text = String(self.taken) + self.slashT + String(self.total);
             self.avail = self.total - self.taken;
-            self.ttlAvl = "Total Spots Available: " + String(self.avail);
+            self.ttlAvl = String(self.avail) + " Available";
             self.availableSpots.text = self.ttlAvl;
             print("ball")
             
