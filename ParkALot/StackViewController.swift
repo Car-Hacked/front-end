@@ -38,6 +38,8 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     var Garages: [Garage] = []
     var taken: Int!
     var total: Int!
+    var carryGarry: Garage? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +68,12 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
             self.tableView.reloadData()
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "toSingle") {
+            var vc = segue.destination as! ViewController
+            vc.currGar = self.carryGarry
+        }
+    }
     
     //TABLE VIEW CALLS
     // Return the number of rows for the table.
@@ -89,6 +97,11 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         if (indexPath.row % 2) == 0 {return 30}
 
         return 80
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        carryGarry = Garages[indexPath.row/2]
+        let singleDisplay = ViewController()
+        self.performSegue(withIdentifier: "toSingle", sender: Any?.self)
     }
 
 }

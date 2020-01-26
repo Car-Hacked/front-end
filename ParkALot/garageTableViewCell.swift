@@ -26,18 +26,8 @@ class garageTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        print("HERE")
-        let carryGarry = garry
-
-       
-
-        //        let singleDisplay = ViewController()
-        //        singleDisplay.Name = carryName
-        //        RVC.Image = carryImage
-        //        RVC.Description = carryDescription
-        //        self.present(RVC, animated: true, completion: nil)
-  
-    }
+        
     
+    }
 
 }
