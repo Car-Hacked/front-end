@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B120F2A75B43EC233D3811D /* Pods_ParkALot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92EBE40CC3B00C6C8DC38056 /* Pods_ParkALot.framework */; };
+		0C91786123DD741100B42F08 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C91786023DD741100B42F08 /* SF-Pro-Display-Bold.otf */; };
 		0C9F9E2323DBEC0E008769B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2223DBEC0E008769B6 /* AppDelegate.swift */; };
 		0C9F9E2523DBEC0E008769B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2423DBEC0E008769B6 /* SceneDelegate.swift */; };
 		0C9F9E2723DBEC0E008769B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2623DBEC0E008769B6 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C91786023DD741100B42F08 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		0C9F9E1F23DBEC0E008769B6 /* ParkALot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkALot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C9F9E2223DBEC0E008769B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C9F9E2423DBEC0E008769B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		0C9F9E2123DBEC0E008769B6 /* ParkALot */ = {
 			isa = PBXGroup;
 			children = (
+				0C91786023DD741100B42F08 /* SF-Pro-Display-Bold.otf */,
 				0C9F9E3F23DC2781008769B6 /* SF-Pro-Display-Heavy.otf */,
 				0C9F9E2223DBEC0E008769B6 /* AppDelegate.swift */,
 				0C9F9E2423DBEC0E008769B6 /* SceneDelegate.swift */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C9F9E2F23DBEC10008769B6 /* LaunchScreen.storyboard in Resources */,
+				0C91786123DD741100B42F08 /* SF-Pro-Display-Bold.otf in Resources */,
 				0C9F9E2C23DBEC10008769B6 /* Assets.xcassets in Resources */,
 				0C9F9E2A23DBEC0E008769B6 /* Main.storyboard in Resources */,
 				0C9F9E4023DC2781008769B6 /* SF-Pro-Display-Heavy.otf in Resources */,
