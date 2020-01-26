@@ -42,8 +42,8 @@ class ViewController: UIViewController {
     var ttlAvl: String!
     var garageList:[Garage] = []
     var x = 0
-    let trackTtl = "Let's track";
-    let parkingTtl = "some parking.";
+    let trackTtl = "Let's track some";
+    let parkingTtl = "parking.";
     let slashT = " / ";
     let sptFll = " Spots filled"
     
