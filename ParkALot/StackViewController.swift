@@ -80,7 +80,7 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         }
         let currGar = Garages[indexPath.row / 2]
         let cell = tableView.dequeueReusableCell(withIdentifier: "garagescell") as! garageTableViewCell
-        cell.setup(name: currGar.garageName , local: currGar.address )
+        cell.setup(garage: currGar )
        
        return cell
     }
