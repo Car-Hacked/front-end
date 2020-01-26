@@ -33,6 +33,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var garageName: UILabel!
     @IBOutlet weak var outOf: UILabel!
     @IBOutlet weak var opaqCon: UIImageView!
+    @IBOutlet weak var goTo: UIButton!
+    @IBAction func goToMap(_ sender: Any) {
+        guard let urlButton = URL(string: "http://maps.apple.com/?address=1803+15th+avenue+south,+37212+Nashville,+tn&t=m") else {
+            return
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(urlButton, options: [:]) {_ in }
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(urlButton)
+        }
+    }
     
     let manager = SocketManager(socketURL: URL(string: "https://park-a-lot.herokuapp.com/")!, config: [.log(true), .compress])
     var socket: SocketIOClient!

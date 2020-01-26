@@ -94,6 +94,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jph-o7-WOD">
+                                <rect key="frame" x="65" y="771" width="281" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="goToMap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DzJ-2v-Zm2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.070426635444164276" green="0.069696418941020966" blue="0.11113230139017105" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -130,6 +138,7 @@
                     <connections>
                         <outlet property="availableSpots" destination="0eL-mA-AAD" id="Qwy-wP-ihs"/>
                         <outlet property="garageName" destination="lt2-pP-aNJ" id="Imk-W8-HyW"/>
+                        <outlet property="goTo" destination="jph-o7-WOD" id="ePc-hj-BQ4"/>
                         <outlet property="headerBacground" destination="x9a-OO-EYm" id="7KL-FR-srF"/>
                         <outlet property="opaqCon" destination="kXG-e3-PZ5" id="yXV-Sk-Own"/>
                         <outlet property="outOf" destination="9Oy-dn-wyN" id="hxH-DB-SL6"/>
