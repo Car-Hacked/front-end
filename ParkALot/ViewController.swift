@@ -13,13 +13,14 @@ struct Root : Decodable {
    let Garages: [Garage]
 }
 struct Garage: Decodable{
-    let name: String
-    let carsInLot: Int
     let _id: String
+    let garageName: String
+    let address: String
+    let carsInLot: Int
     let capacity: Int
-//    let createdAt: String
-//    let updatedAt: String
-//    let __v: Int
+    let createdAt: String
+    let updatedAt: String
+    let __v: Int
 }
 
 class ViewController: UIViewController {
@@ -34,7 +35,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var opaqCon: UIImageView!
     @IBOutlet weak var sideButton: UIButton!
     
-    let manager = SocketManager(socketURL: URL(string: "https://park-hack-api.herokuapp.com/")!, config: [.log(true), .compress])
+    let manager = SocketManager(socketURL: URL(string: "https://park-a-lot.herokuapp.com/")!, config: [.log(true), .compress])
     var socket: SocketIOClient!
     var total: Int!
     var avail: Int!
@@ -77,7 +78,7 @@ class ViewController: UIViewController {
       
         //API call to set initial values
         let apicall = DispatchGroup();
-        let garageJson = "https://park-hack-api.herokuapp.com/garages"
+        let garageJson = "https://park-a-lot.herokuapp.com/api/v1/garages/"
         guard let url = URL(string: garageJson) else {return}
         sideButton.layer.cornerRadius = sideButton.frame.width/15;
         sideButton.clipsToBounds = false;
@@ -94,6 +95,7 @@ class ViewController: UIViewController {
                 //self.garageList.append(garages.Garage)
                 print(garages);
                 let selectedGarage = garages[0]
+                print("ID: ", selectedGarage._id)
                 self.taken = selectedGarage.carsInLot
                 self.total = selectedGarage.capacity
                 self.avail = self.total - self.taken;
@@ -118,7 +120,7 @@ class ViewController: UIViewController {
        socket.on(clientEvent: .connect) {data, ack in
            print("socket connected")
        }
-        self.socket.on("garageUpdate") {data, ack in
+        self.socket.on("updated") {data, ack in
             var id = data[0] as! String;
             if var carsInLot = data[1] as? String {
                 self.taken = Int(carsInLot);
@@ -132,6 +134,7 @@ class ViewController: UIViewController {
             self.avail = self.total - self.taken;
             self.ttlAvl = "Total Spots Available: " + String(self.avail);
             self.availableSpots.text = self.ttlAvl;
+            print("ball")
             
         }
         
