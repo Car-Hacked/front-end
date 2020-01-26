@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B120F2A75B43EC233D3811D /* Pods_ParkALot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92EBE40CC3B00C6C8DC38056 /* Pods_ParkALot.framework */; };
 		0C9F9E2323DBEC0E008769B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2223DBEC0E008769B6 /* AppDelegate.swift */; };
 		0C9F9E2523DBEC0E008769B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2423DBEC0E008769B6 /* SceneDelegate.swift */; };
 		0C9F9E2723DBEC0E008769B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2623DBEC0E008769B6 /* ViewController.swift */; };
 		0C9F9E2A23DBEC0E008769B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2823DBEC0E008769B6 /* Main.storyboard */; };
 		0C9F9E2C23DBEC10008769B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2B23DBEC10008769B6 /* Assets.xcassets */; };
 		0C9F9E2F23DBEC10008769B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E2D23DBEC10008769B6 /* LaunchScreen.storyboard */; };
+		0C9F9E4023DC2781008769B6 /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C9F9E3F23DC2781008769B6 /* SF-Pro-Display-Heavy.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		0C9F9E2B23DBEC10008769B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C9F9E2E23DBEC10008769B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C9F9E3023DBEC10008769B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C9F9E3F23DC2781008769B6 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
+		6180AF416CCD518C5848C47E /* Pods-ParkALot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkALot.release.xcconfig"; path = "Target Support Files/Pods-ParkALot/Pods-ParkALot.release.xcconfig"; sourceTree = "<group>"; };
+		8CF671FC437A1E0DC78F8902 /* Pods-ParkALot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParkALot.debug.xcconfig"; path = "Target Support Files/Pods-ParkALot/Pods-ParkALot.debug.xcconfig"; sourceTree = "<group>"; };
+		92EBE40CC3B00C6C8DC38056 /* Pods_ParkALot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParkALot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B120F2A75B43EC233D3811D /* Pods_ParkALot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				0C9F9E2123DBEC0E008769B6 /* ParkALot */,
 				0C9F9E2023DBEC0E008769B6 /* Products */,
+				B06C2E643DE92CB8111763C2 /* Pods */,
+				C3EBB020E54FF8F7E540C357 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +65,7 @@
 		0C9F9E2123DBEC0E008769B6 /* ParkALot */ = {
 			isa = PBXGroup;
 			children = (
+				0C9F9E3F23DC2781008769B6 /* SF-Pro-Display-Heavy.otf */,
 				0C9F9E2223DBEC0E008769B6 /* AppDelegate.swift */,
 				0C9F9E2423DBEC0E008769B6 /* SceneDelegate.swift */,
 				0C9F9E2623DBEC0E008769B6 /* ViewController.swift */,
@@ -67,6 +77,23 @@
 			path = ParkALot;
 			sourceTree = "<group>";
 		};
+		B06C2E643DE92CB8111763C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8CF671FC437A1E0DC78F8902 /* Pods-ParkALot.debug.xcconfig */,
+				6180AF416CCD518C5848C47E /* Pods-ParkALot.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C3EBB020E54FF8F7E540C357 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92EBE40CC3B00C6C8DC38056 /* Pods_ParkALot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C9F9E3323DBEC10008769B6 /* Build configuration list for PBXNativeTarget "ParkALot" */;
 			buildPhases = (
+				178E6A4D5C783F4A1E15DF1C /* [CP] Check Pods Manifest.lock */,
 				0C9F9E1B23DBEC0E008769B6 /* Sources */,
 				0C9F9E1C23DBEC0E008769B6 /* Frameworks */,
 				0C9F9E1D23DBEC0E008769B6 /* Resources */,
+				011A54161D4D5FEB127DB615 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,10 +157,53 @@
 				0C9F9E2F23DBEC10008769B6 /* LaunchScreen.storyboard in Resources */,
 				0C9F9E2C23DBEC10008769B6 /* Assets.xcassets in Resources */,
 				0C9F9E2A23DBEC0E008769B6 /* Main.storyboard in Resources */,
+				0C9F9E4023DC2781008769B6 /* SF-Pro-Display-Heavy.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		011A54161D4D5FEB127DB615 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ParkALot/Pods-ParkALot-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ParkALot/Pods-ParkALot-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParkALot/Pods-ParkALot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		178E6A4D5C783F4A1E15DF1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ParkALot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0C9F9E1B23DBEC0E008769B6 /* Sources */ = {
@@ -282,9 +354,11 @@
 		};
 		0C9F9E3423DBEC10008769B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CF671FC437A1E0DC78F8902 /* Pods-ParkALot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LSK3Y2VKND;
 				INFOPLIST_FILE = ParkALot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,9 +373,11 @@
 		};
 		0C9F9E3523DBEC10008769B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6180AF416CCD518C5848C47E /* Pods-ParkALot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LSK3Y2VKND;
 				INFOPLIST_FILE = ParkALot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
