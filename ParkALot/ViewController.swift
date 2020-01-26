@@ -76,13 +76,13 @@ class ViewController: UIViewController {
         self.taken = currGar?.carsInLot;
         self.avail = self.total - self.taken;
         self.outOf.text = (String(self.taken) + " / " + String(self.total));
-        self.ttlAvl = String(avail) + "Available";
+        self.ttlAvl = String(avail) + " Available";
         self.availableSpots.text = self.ttlAvl
         self.garageName.text = currGar?.garageName
 
         outOf.layer.borderWidth = 2;
         outOf.layer.borderColor = UIColor.white.cgColor
-        outOf.layer.cornerRadius = outOf.frame.width/6;
+        outOf.layer.cornerRadius = outOf.frame.width/8;
         goTo.layer.cornerRadius = goTo.frame.width/60;
         goTo.layer.shadowOffset = CGSize(width:0,height: 16);
         goTo.layer.shadowOpacity = 0.5;
