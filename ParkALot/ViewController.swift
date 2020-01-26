@@ -132,6 +132,7 @@ class ViewController: UIViewController {
             self.avail = self.total - self.taken;
             self.ttlAvl = "Total Spots Available: " + String(self.avail);
             self.availableSpots.text = self.ttlAvl;
+            print("ball")
             
         }
         
