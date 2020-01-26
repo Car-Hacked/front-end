@@ -9,19 +9,6 @@
 import UIKit
 import SocketIO
 
-struct Root : Decodable {
-   let Garages: [Garage]
-}
-struct Garage: Decodable{
-    var name: String
-    var carsInLot: Int
-    var _id: String
-    var capacity: Int
-//    let createdAt: String
-//    let updatedAt: String
-//    let __v: Int
-}
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var availableSpots: UILabel!

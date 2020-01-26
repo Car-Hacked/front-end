@@ -8,9 +8,29 @@
 
 import UIKit
 
-class StackViewController: UIViewController {
+struct Root : Decodable {
+   let Garages: [Garage]
+}
+
+struct Garage: Decodable{
+    var _id: String
+    var garageName: String
+    var address: String
+    var carsInLot: Int
+    var capacity: Int
+    var createdAt: String
+    var updatedAt: String
+    var __v: Int
+    //var available: Int
+}
+
+class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
     //Outlets
-    @IBOutlet weak var Stack: UIStackView!
+
+    
+    @IBOutlet weak var headerBackground: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    
     
     
     
@@ -19,39 +39,12 @@ class StackViewController: UIViewController {
     var taken: Int!
     var total: Int!
     
-    func createButtons(){
-        for garage in  Garages{
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-            button.backgroundColor = UIColor.magenta
-            button.setTitle(garage.name, for: .normal)
-            //button.addTarget(self, action: #selector(handelButton), for: .touchUpInside)
-            button.clipsToBounds = false
-            button.layer.cornerRadius = button.frame.width / 30;
-            Stack.addArrangedSubview(button)
-        }
-    }
-    
-//    @objc func handelButton(sender: UIButton){
-//        for rapper in wrappers {
-//            if rapper.name == sender.titleLabel?.text{
-//                carryName = rapper.name
-//                carryDescription = rapper.description
-//                carryImage = sender.currentBackgroundImage
-//            }
-//        }
-//        let singleDisplay = ViewController()
-//        singleDisplay.Name = carryName
-//        RVC.Image = carryImage
-//        RVC.Description = carryDescription
-//        self.present(RVC, animated: true, completion: nil)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // hard data View setup
         // Api Call
         let apicall = DispatchGroup();
-        let garageJson = "https://park-hack-api.herokuapp.com/garages"
+        let garageJson = "https://park-a-lot.herokuapp.com/api/v1/garages/"
         guard let url = URL(string: garageJson) else {return}
         apicall.enter();
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -59,40 +52,43 @@ class StackViewController: UIViewController {
             guard let data = data else {return}
             do{
                 let garages = try JSONDecoder().decode([Garage].self, from: data)
-                //self.garageList.append(garages.Garage)
-                print(garages);
-                
                 for garage in garages {
-                    var garageObj: Garage!
-                    garageObj.name = garage.name
-                    garageObj._id = garage._id
-                    self.taken = selectedGarage.carsInLot
-                    self.total = selectedGarage.capacity
+                    print(garage);
+                    self.Garages.append(garage)
                 }
-                
-//                self.avail = self.total - self.taken;
-                
             }catch let err{
                 print (err)
-                
             }
             apicall.leave()
         }
         .resume()
         apicall.notify(queue: .main){
-//            self.ttlAvl = "Total Spots Available: " + String(self.avail);
-//            self.availableSpots.text = self.ttlAvl ;
-//            self.track.text = self.trackTtl;
-//            self.parking.text = self.parkingTtl;
-//            self.outOf.text = String(self.taken) + self.slashT + String(self.total) + self.sptFll;
-            
-            for button in buttons{
-                button.imageView?.contentMode = .scaleAspectFill
-                button.subviews.first?.contentMode = .scaleAspectFill
-                stackview.addArrangedSubview(button)
-            }
+            self.tableView.reloadData()
         }
-        
+    }
+    
+    //TABLE VIEW CALLS
+    // Return the number of rows for the table.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {return Garages.count * 2}
+
+    // Provide a cell object for each row.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       // Fetch a cell of the appropriate type.
+        if (indexPath.row % 2) == 0 {
+            let gapCell = tableView.dequeueReusableCell(withIdentifier: "gap") as! gapTableViewCell
+             return gapCell
+        }
+        let currGar = Garages[indexPath.row / 2]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "garagescell") as! garageTableViewCell
+        cell.setup(name: currGar.garageName , local: currGar.address )
+       
+       return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.row % 2) == 0 {return 30}
+
+        return 80
     }
 
 }
