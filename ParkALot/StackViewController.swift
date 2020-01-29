@@ -40,6 +40,7 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     
     @IBAction func refreshBtn(_ sender: Any) {
         pullApi()
+        //check
     }
     
     // pulls form the api and populates the list with updated data.
