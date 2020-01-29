@@ -144,7 +144,7 @@
                         <outlet property="headerBackground" destination="BPE-FH-Bo4" id="pYP-IO-Yto"/>
                         <outlet property="refresh" destination="3aS-Tp-bD3" id="FrM-KC-CLH"/>
                         <outlet property="tableView" destination="cqn-wS-FjL" id="i2R-NM-weI"/>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toSingle" id="8yV-ds-rb7"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSingle" id="8yV-ds-rb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="au6-pI-X1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -305,6 +305,7 @@
         <image name="Image" width="1650" height="1688"/>
         <image name="Image-1" width="1016" height="1070"/>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="headerBackground" width="750" height="667"/>
         <image name="headerBackground2" width="750" height="667"/>
     </resources>
 </document>

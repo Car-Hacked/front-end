@@ -22,16 +22,14 @@ class garageTableViewCell: UITableViewCell {
         let cap = Float(garry.capacity)
         let cin = Float(garry.carsInLot)
         self.avail.text = String(Int(cap-cin))
-        if (cin/cap) < 0.75{
-            dotOfTruth.backgroundColor = UIColor(red:0.27, green:1.00, blue:0.70, alpha:1.0)
-        }
+        
         if(cin/cap) > 0.99{dotOfTruth.backgroundColor = UIColor(red:1.00, green:0.05, blue:0.24, alpha:1.0)}
-        else {
-            dotOfTruth.backgroundColor = UIColor(red:0.06, green:0.99, blue:0.71, alpha:1.0)
-        }
+        else if (cin/cap) > 0.75{dotOfTruth.backgroundColor = UIColor(red:1.00, green:0.86, blue:0.27, alpha:1.0)}
+        else{dotOfTruth.backgroundColor = UIColor(red:0.06, green:0.99, blue:0.71, alpha:1.0)}
         
  
     }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
