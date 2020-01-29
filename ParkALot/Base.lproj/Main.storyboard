@@ -122,6 +122,9 @@
                                     <constraint firstAttribute="height" constant="50" id="9WY-aa-wIB"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="Image-1"/>
+                                <connections>
+                                    <action selector="refreshBtn:" destination="wNQ-BX-bAv" eventType="touchUpInside" id="6iC-NZ-LEP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.070426635444164276" green="0.069696418941020966" blue="0.11113230139017105" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -144,7 +147,7 @@
                         <outlet property="headerBackground" destination="BPE-FH-Bo4" id="pYP-IO-Yto"/>
                         <outlet property="refresh" destination="3aS-Tp-bD3" id="FrM-KC-CLH"/>
                         <outlet property="tableView" destination="cqn-wS-FjL" id="i2R-NM-weI"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSingle" id="8yV-ds-rb7"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toSingle" id="8yV-ds-rb7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="au6-pI-X1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

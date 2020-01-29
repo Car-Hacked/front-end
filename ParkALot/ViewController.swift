@@ -60,8 +60,14 @@ class ViewController: UIViewController {
         }
     }
     
-    func setup(curg: Garage){
-        
+    func colorFunc(percent: Double){
+        if percent > 0.99{
+            self.availableSpots.textColor = UIColor(red:1.00, green:0.05, blue:0.24, alpha:1.0)
+        }else if percent > 0.75{
+            self.availableSpots.textColor = UIColor(red:1.00, green:0.86, blue:0.27, alpha:1.0)
+        }else{
+            self.availableSpots.textColor = UIColor(red:0.06, green:0.99, blue:0.71, alpha:1.0)
+        }
     }
     
     override func viewDidLoad() {
@@ -78,6 +84,7 @@ class ViewController: UIViewController {
         self.outOf.text = (String(self.taken) + " / " + String(self.total));
         self.ttlAvl = String(avail) + " Available";
         self.availableSpots.text = self.ttlAvl
+        colorFunc(percent: Double(self.taken) / Double(self.total))
         self.garageName.text = currGar?.garageName
 
         outOf.layer.borderWidth = 2;
@@ -96,25 +103,29 @@ class ViewController: UIViewController {
         opaqCon.layer.shadowOffset = .zero;
         opaqCon.layer.shadowOpacity = 1;
         opaqCon.layer.shadowRadius = 20;
+        
     }
 
+    //socket opens to update date.this then refreshes every minute
     func socketLink(){
        socket.on(clientEvent: .connect) {data, ack in
            print("socket connected")
        }
         self.socket.on("updated") {data, ack in
-            var id = data[0] as! String;
-            if var carsInLot = data[1] as? String {
+            //mak sure the corect garage id is filtering socket signals
+            if(self.currGar?._id != (data[0] as? String)!){return}
+            if let carsInLot = data[1] as? String {
                 self.taken = Int(carsInLot);
             }
             else {
                 self.taken = data[1] as? Int;
             }
-            
             self.outOf.text = String(self.taken) + " / " + String(self.total);
             self.avail = self.total - self.taken;
             self.ttlAvl = String(self.avail) + " Available";
             self.availableSpots.text = self.ttlAvl;
+            let percent = Double(self.taken) / Double(self.total)
+            self.colorFunc(percent: percent)
         }
 
     }

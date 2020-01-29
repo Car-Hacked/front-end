@@ -26,10 +26,7 @@ class garageTableViewCell: UITableViewCell {
         if(cin/cap) > 0.99{dotOfTruth.backgroundColor = UIColor(red:1.00, green:0.05, blue:0.24, alpha:1.0)}
         else if (cin/cap) > 0.75{dotOfTruth.backgroundColor = UIColor(red:1.00, green:0.86, blue:0.27, alpha:1.0)}
         else{dotOfTruth.backgroundColor = UIColor(red:0.06, green:0.99, blue:0.71, alpha:1.0)}
-        
- 
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

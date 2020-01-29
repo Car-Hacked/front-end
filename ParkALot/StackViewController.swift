@@ -25,8 +25,7 @@ struct Garage: Decodable{
 }
 
 class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
-    //Outlets
-
+    
     //outlets
     @IBOutlet weak var headerBackground: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -38,18 +37,16 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     var total: Int!
     var carryGarry: Garage? = nil
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        headerBackground.layer.cornerRadius = headerBackground.frame.width/15
-        refresh.imageEdgeInsets = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
-        refresh.layer.cornerRadius = headerBackground.frame.width/35
-        refresh.clipsToBounds = false;
-        refresh.layer.shadowColor = UIColor.black.cgColor;
-        refresh.layer.shadowOffset = .zero;
-        refresh.layer.shadowOpacity = 1;
-        refresh.layer.shadowRadius = 15;
-
-        
+    
+    @IBAction func refreshBtn(_ sender: Any) {
+        pullApi()
+    }
+    
+    // pulls form the api and populates the list with updated data.
+    // This ouccers every 30 seconds.
+    @objc func pullApi(){
+        //Must delete current garage list first
+        Garages = []
         // Api Call
         let apicall = DispatchGroup();
         let garageJson = "https://park-a-lot.herokuapp.com/api/v1/garages/"
@@ -74,9 +71,26 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
             self.tableView.reloadData()
         }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        headerBackground.layer.cornerRadius = headerBackground.frame.width/15
+        refresh.imageEdgeInsets = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+        refresh.layer.cornerRadius = headerBackground.frame.width/35
+        refresh.clipsToBounds = false;
+        refresh.layer.shadowColor = UIColor.black.cgColor;
+        refresh.layer.shadowOffset = .zero;
+        refresh.layer.shadowOpacity = 1;
+        refresh.layer.shadowRadius = 15;
+        pullApi()
+    
+        //timer calls pull api to refresh data every 30seconds.
+        let timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(pullApi), userInfo: nil, repeats: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toSingle") {
-            var vc = segue.destination as! ViewController
+            let vc = segue.destination as! ViewController
             vc.currGar = self.carryGarry
         }
     }
@@ -107,7 +121,6 @@ class StackViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         carryGarry = Garages[indexPath.row/2]
-        let singleDisplay = ViewController()
         self.performSegue(withIdentifier: "toSingle", sender: Any?.self)
     }
 
